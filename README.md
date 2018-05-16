@@ -38,7 +38,36 @@ AngularJS - How to setup a new project:
 	
 	TODO: Need to check why this is not working as expected. 
 
+11. @Input 
+	- a settable property. It will be set with a value when it is data bound with a property binding.
 
+12. Constructor 
+	- Max 1 constructor is allowed in a class
+	- used for Dependency Injection (DI) of other module/service
+	- constructor(private http: Http) {}
+
+13. @Inject	
+	- can be used for DI 
+	- constructor(@Inject(Http) private http) {}
+	- seems to be a manual way to do DI as Angular supports resolving dependencies from the emitted metadata (At this point, docs suggest DI using constructor is better).
+
+14. @Injectable
+	- mandatory when we define a service without which there is no way for Angular to read what dependencies it requires.		
+
+15. ngOnInit
+	- a lifecycle hook
+	- gives a signal that Angular has finished initialising the component.
+
+16. Service
+	- a provider to do backend logic/access DB etc.
+
+17. Observable
+	- to asynchronously process the requests.
+	- Ex: A list of users have to be fetched and displayed in the UI.
+		- first the UI has to wait/hang around until it sends a request to backend server, the service fetches the users and returns a response to the UI.
+		- Observable is like a publish - subscribe mechanism... 
+		- when a component subscribes to it, it starts publishing objects/messages (Observable of) until the execution is completed. 
+		- after the execution is completed the Angular promises come to picture.
 
 What I understood about AngularJS so far:
 =========================================
